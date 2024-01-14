@@ -16,9 +16,10 @@ func get_player_position():
 	return player.position
 	
 func follow_player():
+	print(position.distance_squared_to(player.position)/80)
 	if stunned:
-		velocity.x = move_toward(velocity.x, 0, 10)
-		velocity.y = move_toward(velocity.y, 0, 10)
+		velocity.x = move_toward(velocity.x, 0, 20 / (position.distance_to(player.position)/80))
+		velocity.y = move_toward(velocity.y, 0, 20 / (position.distance_to(player.position)/80))
 	else:
 		var rotated_speed = speed.rotated(position.angle_to_point(player.position))
 		velocity = rotated_speed

@@ -73,17 +73,14 @@ rotation = 0.686171
 [node name="TreeLine7" parent="MapBorders" instance=ExtResource("3_g0nkd")]
 position = Vector2(717, 4094)
 rotation = -1.59271
-scale = Vector2(1, 1)
 
 [node name="TreeLine8" parent="MapBorders" instance=ExtResource("3_g0nkd")]
 position = Vector2(2236, 3558)
 rotation = -2.13232
-scale = Vector2(1, 1)
 
 [node name="TreeLine5" parent="MapBorders" instance=ExtResource("3_g0nkd")]
 position = Vector2(3562, 2702)
 rotation = -0.628941
-scale = Vector2(1, 1)
 
 [node name="TreeLine6" parent="MapBorders" instance=ExtResource("3_g0nkd")]
 position = Vector2(4430, 1242)

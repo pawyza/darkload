@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://kg1ammyj3nba"]
+
+[ext_resource type="Texture2D" uid="uid://b5r7pnoneyc00" path="res://LightCircle.png" id="1_vq6a4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slqb7"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2l2fj"]
+polygon = PackedVector2Array(6.94186, -14.0289, 10.9543, -11.0455, 14.975, -6.06218, 16.0123, 2.9336, 12.0414, 9.95013, 6.05803, 13.975, -1.9336, 16.0082, -7.94185, 14.0331, -12.9626, 9.05386, -15.9874, 3.06635, -16.0123, -2.9336, -13.0372, -8.94599, -8.05386, -12.9667, -2.06636, -15.9916, 2.9336, -16.0123)
+
+[node name="Tree" type="StaticBody2D"]
+modulate = Color(0.470588, 0.25098, 0.0156863, 1)
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_slqb7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vq6a4")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+rotation = 0.00414869
+occluder = SubResource("OccluderPolygon2D_2l2fj")

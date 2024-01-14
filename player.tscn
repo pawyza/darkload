@@ -1,14 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://btwmdb60oi3c"]
+[gd_scene load_steps=10 format=3 uid="uid://btwmdb60oi3c"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_v0u16"]
 [ext_resource type="Texture2D" uid="uid://dy2adlpp80wef" path="res://Circle.png" id="2_vllec"]
 [ext_resource type="Texture2D" uid="uid://bx7lecality6l" path="res://LightMask.png" id="3_b8yj3"]
+[ext_resource type="Texture2D" uid="uid://1oh0x6cutm7c" path="res://EnemyCircle.png" id="4_jqswm"]
+[ext_resource type="Texture2D" uid="uid://b5r7pnoneyc00" path="res://LightCircle.png" id="5_wk24b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6v8p"]
 radius = 32.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pf71b"]
-polygon = PackedVector2Array(-2.14861, 1.61688, 61, 63, 39, -20, -4.37671, -50.8909, -39, -18, -62, 63)
+polygon = PackedVector2Array(-2.14861, 1.61688, 687, 1176, 1141, 727, 17.9423, -60.3224, -1329, 408, -958, 1035)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5e6fo"]
 radius = 32.0
@@ -27,6 +29,7 @@ shape = SubResource("CircleShape2D_x6v8p")
 
 [node name="Body_1" type="Node2D" parent="."]
 position = Vector2(0, 44)
+rotation = -0.12063
 
 [node name="Sprite2D" type="Sprite2D" parent="Body_1"]
 scale = Vector2(2, 2)
@@ -44,6 +47,25 @@ texture = ExtResource("3_b8yj3")
 position = Vector2(2, -8)
 occluder = SubResource("OccluderPolygon2D_pf71b")
 
+[node name="LightArea" type="Area2D" parent="Body_1"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body_1/LightArea"]
+polygon = PackedVector2Array(-294.994, 322.847, -194.367, 365.265, 90.7877, 397.816, 217.617, 381.963, -0.120337, 0.992733)
+
+[node name="Flashlight" type="Sprite2D" parent="Body_1"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-2.70992, 20.6314)
+texture = ExtResource("4_jqswm")
+
+[node name="Heat" type="PointLight2D" parent="Body_1/Flashlight"]
+color = Color(0.568627, 0.113725, 0, 1)
+energy = 7.72
+range_item_cull_mask = 2
+texture = ExtResource("5_wk24b")
+
 [node name="Collision_2" type="CollisionShape2D" parent="."]
 position = Vector2(-39, -25)
 rotation = 1.98272
@@ -51,7 +73,7 @@ shape = SubResource("CircleShape2D_5e6fo")
 
 [node name="Body_2" type="Node2D" parent="."]
 position = Vector2(-39, -25)
-rotation = 1.98272
+rotation = 2.09754
 
 [node name="Sprite2D" type="Sprite2D" parent="Body_2"]
 scale = Vector2(2, 2)
@@ -69,6 +91,25 @@ texture = ExtResource("3_b8yj3")
 position = Vector2(2, -7)
 occluder = SubResource("OccluderPolygon2D_pf71b")
 
+[node name="LightArea" type="Area2D" parent="Body_2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body_2/LightArea"]
+polygon = PackedVector2Array(-294.994, 322.847, -194.367, 365.265, 90.7877, 397.816, 217.617, 381.963, -0.120337, 0.992733)
+
+[node name="Flashlight" type="Sprite2D" parent="Body_2"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-2.70992, 20.6314)
+texture = ExtResource("4_jqswm")
+
+[node name="Heat" type="PointLight2D" parent="Body_2/Flashlight"]
+color = Color(0.568627, 0.113725, 0, 1)
+energy = 7.72
+range_item_cull_mask = 2
+texture = ExtResource("5_wk24b")
+
 [node name="Collision_3" type="CollisionShape2D" parent="."]
 position = Vector2(50, -25)
 rotation = -1.9237
@@ -76,7 +117,7 @@ shape = SubResource("CircleShape2D_8kfkd")
 
 [node name="Body_3" type="Node2D" parent="."]
 position = Vector2(50, -25)
-rotation = 4.35948
+rotation = 3.96712
 
 [node name="Sprite2D" type="Sprite2D" parent="Body_3"]
 scale = Vector2(2, 2)
@@ -93,3 +134,45 @@ texture = ExtResource("3_b8yj3")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Body_3"]
 position = Vector2(2, -7)
 occluder = SubResource("OccluderPolygon2D_pf71b")
+
+[node name="LightArea" type="Area2D" parent="Body_3"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body_3/LightArea"]
+polygon = PackedVector2Array(-294.994, 322.847, -194.367, 365.265, 90.7877, 397.816, 217.617, 381.963, -0.120337, 0.992733)
+
+[node name="Flashlight" type="Sprite2D" parent="Body_3"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-2.70992, 20.6314)
+texture = ExtResource("4_jqswm")
+
+[node name="Heat" type="PointLight2D" parent="Body_3/Flashlight"]
+color = Color(0.568627, 0.113725, 0, 1)
+energy = 7.72
+range_item_cull_mask = 2
+texture = ExtResource("5_wk24b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.66, 0.66)
+
+[node name="Flashlight" type="Node2D" parent="."]
+
+[node name="StunTimer" type="Timer" parent="Flashlight"]
+wait_time = 0.1
+one_shot = true
+
+[node name="TurnOffTimer" type="Timer" parent="Flashlight"]
+one_shot = true
+
+[node name="HeatingTickTimer" type="Timer" parent="Flashlight"]
+one_shot = true
+
+[node name="CoolingTickTimer" type="Timer" parent="Flashlight"]
+one_shot = true
+
+[connection signal="timeout" from="Flashlight/StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="timeout" from="Flashlight/TurnOffTimer" to="." method="_on_turn_off_timer_timeout"]
+[connection signal="timeout" from="Flashlight/HeatingTickTimer" to="." method="_on_heating_tick_timer_timeout"]
+[connection signal="timeout" from="Flashlight/CoolingTickTimer" to="." method="_on_cooling_tick_timer_timeout"]

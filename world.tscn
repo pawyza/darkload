@@ -1,16 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://kyeidinuq466"]
+[gd_scene load_steps=8 format=3 uid="uid://kyeidinuq466"]
 
 [ext_resource type="PackedScene" uid="uid://btwmdb60oi3c" path="res://player.tscn" id="1_7tdpa"]
 [ext_resource type="PackedScene" uid="uid://cvt51ranaqhu3" path="res://enemy.tscn" id="2_54jkw"]
+[ext_resource type="PackedScene" uid="uid://m15jxu87mkxh" path="res://tree_line.tscn" id="3_g0nkd"]
+[ext_resource type="PackedScene" uid="uid://kg1ammyj3nba" path="res://tree.tscn" id="4_wcm1a"]
 
 [sub_resource type="Gradient" id="Gradient_0j2h4"]
-colors = PackedColorArray(0.00573578, 0.0183182, 0.00950539, 1, 0.131713, 0.115693, 0.0370939, 1)
+colors = PackedColorArray(0.271111, 0.182647, 0.0307372, 1, 0.746184, 0.596804, 0.190714, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wf3af"]
 noise_type = 5
-frequency = 0.0016
+frequency = 0.0735
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b1ifb"]
+width = 4096
+height = 4096
 color_ramp = SubResource("Gradient_0j2h4")
 noise = SubResource("FastNoiseLite_wf3af")
 
@@ -18,16 +22,1426 @@ noise = SubResource("FastNoiseLite_wf3af")
 texture_filter = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.27451, 0.27451, 0.27451, 1)
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+metadata/_edit_lock_ = true
 
 [node name="Ground" type="Sprite2D" parent="."]
-position = Vector2(628, 340)
+position = Vector2(-3216, 1408)
 scale = Vector2(7.26217, -6.15717)
 texture = SubResource("NoiseTexture2D_b1ifb")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_7tdpa")]
 position = Vector2(600, 350)
+metadata/_edit_lock_ = true
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_54jkw")]
 position = Vector2(426, 222)
 player = NodePath("../Player")
+metadata/_edit_lock_ = true
+
+[node name="MapBorders" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="TreeLine" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(4223, -446)
+rotation = 0.857704
+
+[node name="TreeLine10" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(-2067, -647)
+rotation = 0.022339
+
+[node name="TreeLine9" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(-707, -1196)
+rotation = 2.72163
+
+[node name="TreeLine3" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(965, -1662)
+rotation = -1.55114
+
+[node name="TreeLine12" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(-3910.34, -638)
+rotation = 1.57754
+
+[node name="TreeLine11" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(-2001, 1889)
+rotation = 1.5552
+
+[node name="TreeLine4" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(-929, 3613)
+rotation = 0.686171
+
+[node name="TreeLine7" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(717, 4094)
+rotation = -1.59271
+scale = Vector2(1, 1)
+
+[node name="TreeLine8" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(2236, 3558)
+rotation = -2.13232
+scale = Vector2(1, 1)
+
+[node name="TreeLine5" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(3562, 2702)
+rotation = -0.628941
+scale = Vector2(1, 1)
+
+[node name="TreeLine6" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(4430, 1242)
+rotation = 0.0973217
+
+[node name="TreeLine2" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(2666, -1288)
+rotation = 0.33373
+
+[node name="TreeLine14" parent="MapBorders" instance=ExtResource("3_g0nkd")]
+position = Vector2(-3721, 1876)
+rotation = 0.022339
+
+[node name="Trees" type="Node2D" parent="."]
+position = Vector2(-6016, 0)
+scale = Vector2(2.92, 2.92)
+
+[node name="Tree" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(227, -1303)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(390, -1551)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(353, -1428)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(157, -1459)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(265, -1588)
+
+[node name="Tree6" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(362, -1256)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree7" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-115, -1089)
+
+[node name="Tree8" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(48, -1337)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree9" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(11, -1214)
+
+[node name="Tree10" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-185, -1245)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree11" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-77, -1374)
+
+[node name="Tree12" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(19.9999, -1042)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree13" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(60, -807)
+
+[node name="Tree14" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(223, -1055)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree15" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(186, -932)
+
+[node name="Tree16" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-10.0001, -963)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree17" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(98, -1092)
+
+[node name="Tree18" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(195, -760)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree19" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-282, -593)
+
+[node name="Tree20" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-119, -841)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree21" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-156, -718)
+
+[node name="Tree22" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-352, -749)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree23" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-244, -878)
+
+[node name="Tree24" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-147, -546)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree25" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(741, -1037)
+
+[node name="Tree26" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(904, -1285)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree27" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(867, -1162)
+
+[node name="Tree28" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(671, -1193)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree29" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(779, -1322)
+
+[node name="Tree30" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(876, -990)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree31" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(399, -823)
+
+[node name="Tree32" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(562, -1071)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree33" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(525, -948)
+
+[node name="Tree34" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(329, -979)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree35" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(437, -1108)
+
+[node name="Tree36" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(534, -776)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree37" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(574, -541)
+
+[node name="Tree38" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(737, -789)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree39" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(700, -666)
+
+[node name="Tree40" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(504, -697)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree41" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(612, -826)
+
+[node name="Tree42" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(709, -494)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree43" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(232, -327)
+
+[node name="Tree44" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(395, -575)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree45" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(358, -452)
+
+[node name="Tree46" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(162, -483)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree47" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(270, -612)
+
+[node name="Tree48" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(367, -280)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree49" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-30, -447)
+
+[node name="Tree50" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(133, -695)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree51" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(96, -572)
+
+[node name="Tree52" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-100, -603)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree53" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(8, -732)
+
+[node name="Tree54" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(105, -400)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree55" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-372, -233)
+
+[node name="Tree56" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-209, -481)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree57" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-246, -358)
+
+[node name="Tree58" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-442, -389)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree59" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-334, -518)
+
+[node name="Tree60" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-237, -186)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree61" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-197, 49)
+
+[node name="Tree62" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-34.0001, -199)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree63" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-71, -76)
+
+[node name="Tree64" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-267, -107)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree65" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-159, -236)
+
+[node name="Tree66" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-62.0001, 95.9999)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree67" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-539, 263)
+
+[node name="Tree68" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-376, 14.9999)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree69" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-413, 138)
+
+[node name="Tree70" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-609, 107)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree71" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-501, -22)
+
+[node name="Tree72" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-404, 310)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree73" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(484, -181)
+
+[node name="Tree74" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(647, -429)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree75" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(610, -306)
+
+[node name="Tree76" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(414, -337)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree77" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(522, -466)
+
+[node name="Tree78" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(619, -134)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree79" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(142, 33)
+
+[node name="Tree80" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(305, -215)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree81" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(268, -92)
+
+[node name="Tree82" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(71.9999, -123)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree83" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(180, -252)
+
+[node name="Tree84" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(277, 79.9999)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree85" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(317, 315)
+
+[node name="Tree86" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(480, 66.9999)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree87" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(443, 190)
+
+[node name="Tree88" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(247, 159)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree89" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(355, 30)
+
+[node name="Tree90" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(452, 362)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree91" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-25, 529)
+
+[node name="Tree92" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(138, 281)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree93" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(101, 404)
+
+[node name="Tree94" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(-95.0001, 373)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree95" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(13, 244)
+
+[node name="Tree96" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(110, 576)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree97" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1298, -834)
+
+[node name="Tree98" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1461, -1082)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree99" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1424, -959)
+
+[node name="Tree100" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1228, -990)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree101" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1336, -1119)
+
+[node name="Tree102" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1433, -787)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree103" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(956, -620)
+
+[node name="Tree104" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1119, -868)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree105" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1082, -745)
+
+[node name="Tree106" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(886, -776)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree107" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(994, -905)
+
+[node name="Tree108" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1091, -573)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree109" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1131, -338)
+
+[node name="Tree110" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1294, -586)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree111" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1257, -463)
+
+[node name="Tree112" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1061, -494)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree113" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1169, -623)
+
+[node name="Tree114" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1266, -291)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree115" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(789, -124)
+
+[node name="Tree116" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(952, -372)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree117" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(915, -249)
+
+[node name="Tree118" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(719, -280)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree119" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(827, -409)
+
+[node name="Tree120" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(924, -77.0001)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree121" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1812, -568)
+
+[node name="Tree122" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1975, -816)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree123" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1938, -693)
+
+[node name="Tree124" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1742, -724)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree125" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1850, -853)
+
+[node name="Tree126" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1947, -521)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree127" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1470, -354)
+
+[node name="Tree128" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1633, -602)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree129" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1596, -479)
+
+[node name="Tree130" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1400, -510)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree131" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1508, -639)
+
+[node name="Tree132" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1605, -307)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree133" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1645, -72)
+
+[node name="Tree134" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1808, -320)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree135" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1771, -197)
+
+[node name="Tree136" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1575, -228)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree137" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1683, -357)
+
+[node name="Tree138" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1780, -25.0001)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree139" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1303, 142)
+
+[node name="Tree140" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1466, -106)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree141" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1429, 17)
+
+[node name="Tree142" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1233, -14.0001)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree143" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1341, -143)
+
+[node name="Tree144" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1438, 189)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree145" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1041, 22)
+
+[node name="Tree146" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1204, -226)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree147" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1167, -103)
+
+[node name="Tree148" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(971, -134)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree149" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1079, -263)
+
+[node name="Tree150" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1176, 68.9999)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree151" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(699, 236)
+
+[node name="Tree152" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(862, -12.0001)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree153" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(825, 111)
+
+[node name="Tree154" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(629, 79.9999)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree155" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(737, -49)
+
+[node name="Tree156" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(834, 283)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree157" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(874, 518)
+
+[node name="Tree158" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1037, 270)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree159" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1000, 393)
+
+[node name="Tree160" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(804, 362)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree161" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(912, 233)
+
+[node name="Tree162" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1009, 565)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree163" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(532, 732)
+
+[node name="Tree164" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(695, 484)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree165" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(658, 607)
+
+[node name="Tree166" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(462, 576)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree167" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(570, 447)
+
+[node name="Tree168" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(667, 779)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree169" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1555, 288)
+
+[node name="Tree170" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1718, 39.9999)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree171" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1681, 163)
+
+[node name="Tree172" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1485, 132)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree173" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1593, 3)
+
+[node name="Tree174" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1690, 335)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree175" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1213, 502)
+
+[node name="Tree176" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1376, 254)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree177" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1339, 377)
+
+[node name="Tree178" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1143, 346)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree179" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1251, 217)
+
+[node name="Tree180" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1348, 549)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree181" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1388, 784)
+
+[node name="Tree182" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1551, 536)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree183" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1514, 659)
+
+[node name="Tree184" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1318, 628)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree185" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1426, 499)
+
+[node name="Tree186" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1523, 831)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree187" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1046, 998)
+
+[node name="Tree188" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1209, 750)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree189" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1172, 873)
+
+[node name="Tree190" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(976, 842)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree191" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1084, 713)
+
+[node name="Tree192" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1181, 1045)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree193" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2379, -352)
+
+[node name="Tree194" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2542, -600)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree195" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2505, -477)
+
+[node name="Tree196" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2309, -508)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree197" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2417, -637)
+
+[node name="Tree198" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2514, -305)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree199" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2037, -138)
+
+[node name="Tree200" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2200, -386)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree201" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2163, -263)
+
+[node name="Tree202" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1967, -294)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree203" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2075, -423)
+
+[node name="Tree204" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2172, -91.0001)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree205" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2212, 144)
+
+[node name="Tree206" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2375, -104)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree207" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2338, 19)
+
+[node name="Tree208" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2142, -12.0001)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree209" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2250, -141)
+
+[node name="Tree210" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2347, 191)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree211" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1870, 358)
+
+[node name="Tree212" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2033, 110)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree213" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1996, 233)
+
+[node name="Tree214" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1800, 202)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree215" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1908, 73)
+
+[node name="Tree216" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2005, 405)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree217" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2893, -86)
+
+[node name="Tree218" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3056, -334)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree219" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3019, -211)
+
+[node name="Tree220" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2823, -242)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree221" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2931, -371)
+
+[node name="Tree222" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3028, -39.0001)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree223" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2551, 128)
+
+[node name="Tree224" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2714, -120)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree225" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2677, 3)
+
+[node name="Tree226" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2481, -28.0001)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree227" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2589, -157)
+
+[node name="Tree228" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2686, 175)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree229" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2726, 410)
+
+[node name="Tree230" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2889, 162)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree231" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2852, 285)
+
+[node name="Tree232" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2656, 254)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree233" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2764, 125)
+
+[node name="Tree234" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2861, 457)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree235" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2384, 624)
+
+[node name="Tree236" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2547, 376)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree237" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2510, 499)
+
+[node name="Tree238" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2314, 468)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree239" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2422, 339)
+
+[node name="Tree240" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2519, 671)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree241" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2122, 504)
+
+[node name="Tree242" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2285, 256)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree243" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2248, 379)
+
+[node name="Tree244" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2052, 348)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree245" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2160, 219)
+
+[node name="Tree246" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2257, 551)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree247" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1780, 718)
+
+[node name="Tree248" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1943, 470)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree249" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1906, 593)
+
+[node name="Tree250" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1710, 562)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree251" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1818, 433)
+
+[node name="Tree252" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1915, 765)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree253" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1955, 1000)
+
+[node name="Tree254" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2118, 752)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree255" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2081, 875)
+
+[node name="Tree256" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1885, 844)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree257" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1993, 715)
+
+[node name="Tree258" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2090, 1047)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree259" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1613, 1214)
+
+[node name="Tree260" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1776, 966)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree261" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1739, 1089)
+
+[node name="Tree262" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1543, 1058)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree263" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1651, 929)
+
+[node name="Tree264" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(1748, 1261)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree265" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2636, 770)
+
+[node name="Tree266" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2799, 522)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree267" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2762, 645)
+
+[node name="Tree268" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2566, 614)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree269" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2674, 485)
+
+[node name="Tree270" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2771, 817)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree271" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2294, 984)
+
+[node name="Tree272" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2457, 736)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree273" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2420, 859)
+
+[node name="Tree274" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2224, 828)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree275" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2332, 699)
+
+[node name="Tree276" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2429, 1031)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree277" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2469, 1266)
+
+[node name="Tree278" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2632, 1018)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree279" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2595, 1141)
+
+[node name="Tree280" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2399, 1110)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree281" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2507, 981)
+
+[node name="Tree282" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2604, 1313)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree283" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2127, 1480)
+
+[node name="Tree284" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2290, 1232)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree285" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2253, 1355)
+
+[node name="Tree286" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2057, 1324)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree287" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2165, 1195)
+
+[node name="Tree288" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2262, 1527)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree289" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3450, 117)
+
+[node name="Tree290" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3613, -131)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree291" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3576, -8)
+
+[node name="Tree292" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3380, -39)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree293" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3488, -168)
+
+[node name="Tree294" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3585, 164)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree295" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3108, 331)
+
+[node name="Tree296" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3271, 83)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree297" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3234, 206)
+
+[node name="Tree298" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3038, 175)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree299" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3146, 46)
+
+[node name="Tree300" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3243, 378)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree301" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3283, 613)
+
+[node name="Tree302" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3446, 365)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree303" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3409, 488)
+
+[node name="Tree304" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3213, 457)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree305" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3321, 328)
+
+[node name="Tree306" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3418, 660)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree307" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2941, 827)
+
+[node name="Tree308" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3104, 579)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree309" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3067, 702)
+
+[node name="Tree310" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2871, 671)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree311" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2979, 542)
+
+[node name="Tree312" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3076, 874)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree313" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3964, 383)
+
+[node name="Tree314" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(4127, 135)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree315" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(4090, 258)
+
+[node name="Tree316" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3894, 227)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree317" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(4002, 98)
+
+[node name="Tree318" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(4099, 430)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree319" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3622, 597)
+
+[node name="Tree320" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3785, 349)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree321" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3748, 472)
+
+[node name="Tree322" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3552, 441)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree323" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3660, 312)
+
+[node name="Tree324" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3757, 644)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree325" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3797, 879)
+
+[node name="Tree326" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3960, 631)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree327" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3923, 754)
+
+[node name="Tree328" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3727, 723)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree329" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3835, 594)
+
+[node name="Tree330" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3932, 926)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree331" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3455, 1093)
+
+[node name="Tree332" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3618, 845)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree333" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3581, 968)
+
+[node name="Tree334" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3385, 937)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree335" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3493, 808)
+
+[node name="Tree336" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3590, 1140)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree337" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3193, 973)
+
+[node name="Tree338" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3356, 725)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree339" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3319, 848)
+
+[node name="Tree340" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3123, 817)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree341" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3231, 688)
+
+[node name="Tree342" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3328, 1020)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree343" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2851, 1187)
+
+[node name="Tree344" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3014, 939)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree345" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2977, 1062)
+
+[node name="Tree346" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2781, 1031)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree347" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2889, 902)
+
+[node name="Tree348" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2986, 1234)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree349" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3026, 1469)
+
+[node name="Tree350" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3189, 1221)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree351" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3152, 1344)
+
+[node name="Tree352" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2956, 1313)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree353" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3064, 1184)
+
+[node name="Tree354" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3161, 1516)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree355" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2684, 1683)
+
+[node name="Tree356" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2847, 1435)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree357" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2810, 1558)
+
+[node name="Tree358" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2614, 1527)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree359" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2722, 1398)
+
+[node name="Tree360" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(2819, 1730)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree361" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3707, 1239)
+
+[node name="Tree362" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3870, 991)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree363" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3833, 1114)
+
+[node name="Tree364" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3637, 1083)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree365" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3745, 954)
+
+[node name="Tree366" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3842, 1286)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree367" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3365, 1453)
+
+[node name="Tree368" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3528, 1205)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree369" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3491, 1328)
+
+[node name="Tree370" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3295, 1297)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree371" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3403, 1168)
+
+[node name="Tree372" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3500, 1500)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree373" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3540, 1735)
+
+[node name="Tree374" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3703, 1487)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree375" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3666, 1610)
+
+[node name="Tree376" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3470, 1579)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree377" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3578, 1450)
+
+[node name="Tree378" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3675, 1782)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree379" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3198, 1949)
+
+[node name="Tree380" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3361, 1701)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree381" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3324, 1824)
+
+[node name="Tree382" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3128, 1793)
+scale = Vector2(1.36, 1.36)
+
+[node name="Tree383" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3236, 1664)
+
+[node name="Tree384" parent="Trees" instance=ExtResource("4_wcm1a")]
+position = Vector2(3333, 1996)
+scale = Vector2(1.36, 1.36)

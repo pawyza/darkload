@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvt51ranaqhu3"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_2ko3f"]
+[ext_resource type="Texture2D" uid="uid://1oh0x6cutm7c" path="res://EnemyCircle.png" id="1_xnbya"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g7uld"]
+radius = 23.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6gvqw"]
+cull_mode = 2
+polygon = PackedVector2Array(-6, -22, 0, -23, 6, -22, 11, -20, 16, -16, 20, -11, 22, -6, 23, 0, 22, 6, 20, 11, 16, 17, 12, 20, 6, 22, 0, 23, -6, 22, -11, 20, -16, 16, -19, 12, -22, 6, -23, 0, -22, -6, -20, -12, -17, -16, -11, -20)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_2ko3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_xnbya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g7uld")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_6gvqw")

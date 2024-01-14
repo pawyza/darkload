@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://btwmdb60oi3c"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_v0u16"]
+[ext_resource type="Texture2D" uid="uid://dy2adlpp80wef" path="res://Circle.png" id="2_vllec"]
+[ext_resource type="Texture2D" uid="uid://bx7lecality6l" path="res://LightMask.png" id="3_b8yj3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6v8p"]
+radius = 32.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pf71b"]
+polygon = PackedVector2Array(-2.14861, 1.61688, 61, 63, 39, -20, -4.37671, -50.8909, -39, -18, -62, 63)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5e6fo"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8kfkd"]
+radius = 32.0
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+motion_mode = 1
+script = ExtResource("1_v0u16")
+
+[node name="Collision_1" type="CollisionShape2D" parent="."]
+position = Vector2(0, 44)
+shape = SubResource("CircleShape2D_x6v8p")
+
+[node name="Body_1" type="Node2D" parent="."]
+position = Vector2(0, 44)
+
+[node name="Sprite2D" type="Sprite2D" parent="Body_1"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_vllec")
+
+[node name="PointLight2D" type="PointLight2D" parent="Body_1"]
+position = Vector2(0, 1)
+enabled = false
+color = Color(0.792157, 0.741176, 0.439216, 1)
+energy = 4.58
+shadow_enabled = true
+texture = ExtResource("3_b8yj3")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Body_1"]
+position = Vector2(2, -8)
+occluder = SubResource("OccluderPolygon2D_pf71b")
+
+[node name="Collision_2" type="CollisionShape2D" parent="."]
+position = Vector2(-39, -25)
+rotation = 1.98272
+shape = SubResource("CircleShape2D_5e6fo")
+
+[node name="Body_2" type="Node2D" parent="."]
+position = Vector2(-39, -25)
+rotation = 1.98272
+
+[node name="Sprite2D" type="Sprite2D" parent="Body_2"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_vllec")
+
+[node name="PointLight2D" type="PointLight2D" parent="Body_2"]
+position = Vector2(-0.115608, 2.23308)
+enabled = false
+color = Color(0.792157, 0.741176, 0.439216, 1)
+energy = 4.58
+shadow_enabled = true
+texture = ExtResource("3_b8yj3")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Body_2"]
+position = Vector2(2, -7)
+occluder = SubResource("OccluderPolygon2D_pf71b")
+
+[node name="Collision_3" type="CollisionShape2D" parent="."]
+position = Vector2(50, -25)
+rotation = -1.9237
+shape = SubResource("CircleShape2D_8kfkd")
+
+[node name="Body_3" type="Node2D" parent="."]
+position = Vector2(50, -25)
+rotation = 4.35948
+
+[node name="Sprite2D" type="Sprite2D" parent="Body_3"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_vllec")
+
+[node name="PointLight2D" type="PointLight2D" parent="Body_3"]
+position = Vector2(-0.345626, 0.938373)
+enabled = false
+color = Color(0.792157, 0.741176, 0.439216, 1)
+energy = 4.58
+shadow_enabled = true
+texture = ExtResource("3_b8yj3")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Body_3"]
+position = Vector2(2, -7)
+occluder = SubResource("OccluderPolygon2D_pf71b")

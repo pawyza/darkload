@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://kyeidinuq466"]
+
+[ext_resource type="PackedScene" uid="uid://btwmdb60oi3c" path="res://player.tscn" id="1_7tdpa"]
+[ext_resource type="PackedScene" uid="uid://cvt51ranaqhu3" path="res://enemy.tscn" id="2_54jkw"]
+
+[sub_resource type="Gradient" id="Gradient_0j2h4"]
+colors = PackedColorArray(0.00573578, 0.0183182, 0.00950539, 1, 0.131713, 0.115693, 0.0370939, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wf3af"]
+noise_type = 5
+frequency = 0.0016
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b1ifb"]
+color_ramp = SubResource("Gradient_0j2h4")
+noise = SubResource("FastNoiseLite_wf3af")
+
+[node name="World" type="Node2D"]
+texture_filter = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(628, 340)
+scale = Vector2(7.26217, -6.15717)
+texture = SubResource("NoiseTexture2D_b1ifb")
+
+[node name="Player" parent="." instance=ExtResource("1_7tdpa")]
+position = Vector2(600, 350)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_54jkw")]
+position = Vector2(426, 222)
+player = NodePath("../Player")

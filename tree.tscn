@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://kg1ammyj3nba"]
+[gd_scene load_steps=5 format=3 uid="uid://kg1ammyj3nba"]
 
-[ext_resource type="Texture2D" uid="uid://b5r7pnoneyc00" path="res://LightCircle.png" id="1_vq6a4"]
+[ext_resource type="Script" path="res://tree.gd" id="1_1v87j"]
+[ext_resource type="Texture2D" uid="uid://1h4ao6ppfqsm" path="res://tree.png" id="1_agvfl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slqb7"]
 
@@ -10,12 +11,15 @@ polygon = PackedVector2Array(6.94186, -14.0289, 10.9543, -11.0455, 14.975, -6.06
 [node name="Tree" type="StaticBody2D"]
 modulate = Color(0.470588, 0.25098, 0.0156863, 1)
 texture_filter = 1
+script = ExtResource("1_1v87j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_slqb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_vq6a4")
+self_modulate = Color(0.431373, 0.431373, 0.431373, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_agvfl")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 rotation = 0.00414869

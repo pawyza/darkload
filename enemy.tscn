@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvt51ranaqhu3"]
+[gd_scene load_steps=6 format=3 uid="uid://cvt51ranaqhu3"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_2ko3f"]
-[ext_resource type="Texture2D" uid="uid://1oh0x6cutm7c" path="res://EnemyCircle.png" id="1_xnbya"]
+[ext_resource type="Texture2D" uid="uid://b5r7pnoneyc00" path="res://LightCircle.png" id="2_0omsb"]
+[ext_resource type="Texture2D" uid="uid://dv7b8g5d8fvg8" path="res://enemy.png" id="2_15t0f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g7uld"]
-radius = 23.0
+radius = 40.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6gvqw"]
 cull_mode = 2
@@ -15,18 +16,56 @@ collision_layer = 3
 script = ExtResource("1_2ko3f")
 stun_time = 1.1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_xnbya")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g7uld")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+scale = Vector2(1.4, 1.4)
 occluder = SubResource("OccluderPolygon2D_6gvqw")
+
+[node name="LightCircle" type="Sprite2D" parent="."]
+modulate = Color(0.156863, 0.156863, 0.156863, 1)
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-9, -11)
+rotation = 3.14159
+scale = Vector2(-1.46738, 1.22756)
+texture = ExtResource("2_0omsb")
+
+[node name="LightCircle2" type="Sprite2D" parent="."]
+modulate = Color(0.156863, 0.156863, 0.156863, 1)
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-11, 8)
+rotation = -3.14159
+scale = Vector2(1.13746, 1.54685)
+texture = ExtResource("2_0omsb")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-10.7803, -6.59447)
+rotation = -3.14159
+scale = Vector2(0.104933, 0.11535)
+color = Color(0.423529, 0.164706, 0, 1)
+energy = 16.0
+range_item_cull_mask = 4
+texture = ExtResource("2_0omsb")
+texture_scale = 23.44
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+rotation = 3.14159
+scale = Vector2(0.422, 0.422)
+texture = ExtResource("2_15t0f")
 
 [node name="StunTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
+target_desired_distance = 4.0
+avoidance_enabled = true
 
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]

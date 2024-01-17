@@ -61,9 +61,9 @@ func check_if_in_light(body):
 		return false
 
 func flashlight_effect():
-	$Body_1/Flashlight.self_modulate.a = remap(flashlight_heat,0, 20, 0, 1)
-	$Body_2/Flashlight.self_modulate.a = remap(flashlight_heat,0, 20, 0, 1)
-	$Body_3/Flashlight.self_modulate.a = remap(flashlight_heat,0, 20, 0, 1)
+	$Body_1/Flashlight/Heat.energy = remap(flashlight_heat,0, 20, 0, 16)
+	$Body_2/Flashlight/Heat.energy = remap(flashlight_heat,0, 20, 0, 16)
+	$Body_3/Flashlight/Heat.energy = remap(flashlight_heat,0, 20, 0, 16)
 
 func flashlight_heating( state : bool ):
 	if flashlight_state and $Flashlight/HeatingTickTimer.is_stopped() and flashlight_heat < flashlight_heat_limit:

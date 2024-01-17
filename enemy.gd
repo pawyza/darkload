@@ -35,7 +35,9 @@ func follow_player():
 	if stunned:
 		velocity.x = move_toward(velocity.x, 0, 20 / (position.distance_to(player.position)/80))
 		velocity.y = move_toward(velocity.y, 0, 20 / (position.distance_to(player.position)/80))
+		$AnimationPlayer.pause()
 	else:
+		$AnimationPlayer.play()
 		if navigation_agent.is_navigation_finished():
 			return
 		var current_agent_position = global_position

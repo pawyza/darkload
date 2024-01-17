@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvt51ranaqhu3"]
+[gd_scene load_steps=9 format=3 uid="uid://cvt51ranaqhu3"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_2ko3f"]
 [ext_resource type="Texture2D" uid="uid://b5r7pnoneyc00" path="res://LightCircle.png" id="2_0omsb"]
@@ -10,6 +10,140 @@ radius = 40.0
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6gvqw"]
 cull_mode = 2
 polygon = PackedVector2Array(-6, -22, 0, -23, 6, -22, 11, -20, 16, -16, 20, -11, 22, -6, 23, 0, 22, 6, 20, 11, 16, 17, 12, 20, 6, 22, 0, 23, -6, 22, -11, 20, -16, 16, -19, 12, -22, 6, -23, 0, -22, -6, -20, -12, -17, -16, -11, -20)
+
+[sub_resource type="Animation" id="Animation_annvh"]
+resource_name = "walk"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4.4, 6.1, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [16.0, 15.0, 15.4, 15.6833, 16.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.8, 5.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.423529, 0.164706, 0, 1), Color(0.368627, 0.301961, 0, 1), Color(0.521569, 0.247059, 0.117647, 1), Color(0.423529, 0.164706, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.9, 3.8, 5, 6.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0523599, 0.0, 0.0523599, 0.0, 0.0471239, -0.0698132, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.7, 3, 5.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.422, 0.422), Vector2(0.449, 0.427), Vector2(0.443818, 0.422), Vector2(0.462, 0.422), Vector2(0.422, 0.422)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.9, 5.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0523599, -0.0575959, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8aao6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [16.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.423529, 0.164706, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.422, 0.422)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yasps"]
+_data = {
+"RESET": SubResource("Animation_8aao6"),
+"walk": SubResource("Animation_annvh")
+}
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 3
@@ -55,9 +189,9 @@ texture_scale = 23.44
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
-rotation = 3.14159
 scale = Vector2(0.422, 0.422)
 texture = ExtResource("2_15t0f")
+flip_h = true
 
 [node name="StunTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -67,5 +201,11 @@ one_shot = true
 path_desired_distance = 10.0
 target_desired_distance = 4.0
 avoidance_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yasps")
+}
+autoplay = "walk"
 
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]

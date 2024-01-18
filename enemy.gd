@@ -2,12 +2,16 @@ extends CharacterBody2D
 
 @export var player : CharacterBody2D
 @export var stun_time = 1.5
-@export var movement_speed = 210
+@export var movement_speed = 240
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+
+var activated = false
+@export var spawn_points_node : Node2D
 
 var stunned = false
 
 func _ready():
+	$AnimationPlayer.play("RESET")
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 4.0
 	call_deferred("actor_setup")
@@ -15,14 +19,41 @@ func _ready():
 var i = 0
 
 func _physics_process(delta):
-	check_if_stunned()
-	follow_player()
-	move_and_slide()
-	if i < 10:
-		i += 1
-		actor_setup()
-	else:
-		i = 0
+	if activated:
+		check_if_stunned()
+		follow_player()
+		move_and_slide()
+		detect_collisions()
+		if i < 10:
+			i += 1
+			actor_setup()
+		else:
+			i = 0
+
+func activate():
+	activated = true
+	$AnimationPlayer.play("walk")
+
+func detect_collisions():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().name.begins_with("Player") and !stunned:
+			Signals.emit_signal("player_hit")
+			respawn()
+			break
+
+func respawn():
+	var closest_spawn_point
+	var closest_distance
+	for point in spawn_points_node.get_children():
+		var distance_to_player = player.position.distance_to(point.position)
+		if closest_distance == null and distance_to_player > 2000:
+			closest_distance = distance_to_player
+			closest_spawn_point = point
+		elif closest_distance > distance_to_player and distance_to_player > 2000:
+			closest_distance = distance_to_player
+			closest_spawn_point = point
+	position = closest_spawn_point.position
 
 func actor_setup():
 	await get_tree().physics_frame
@@ -53,3 +84,5 @@ func check_if_stunned():
 
 func _on_stun_timer_timeout():
 	stunned = false
+
+

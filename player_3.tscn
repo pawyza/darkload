@@ -183,6 +183,8 @@ collision_layer = 33
 motion_mode = 1
 script = ExtResource("1_1gncl")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
 [node name="Collision_1" type="CollisionShape2D" parent="."]
 position = Vector2(0, 44)
 shape = SubResource("CircleShape2D_x6v8p")
@@ -360,7 +362,7 @@ libraries = {
 autoplay = "walk"
 
 [node name="TimerWalking" type="Timer" parent="."]
-wait_time = 0.15
+wait_time = 0.3
 one_shot = true
 
 [connection signal="timeout" from="Flashlight/StunTimer" to="." method="_on_stun_timer_timeout"]

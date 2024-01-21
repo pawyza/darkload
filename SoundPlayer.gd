@@ -1,43 +1,18 @@
 extends Node2D
 
 @export var player : CharacterBody2D
-#
-#@export var INITATE_JUMP_SOUND = preload("res://audio/effects/FurFly_PLYR_Initiate_Jump.wav")
-#
-#@export var CHARGING_SOUND = preload("res://audio/effects/FurFly_PLYR_Charging.wav")
-#
-#@export var CHARGING_FULL_SOUND = preload("res://audio/effects/FurFly_PLYR_ChargedFull.wav")
-#
-#@export var MUSIC_SOUND = preload("res://audio/music/FurFly_Music_Master.wav")
-#
-#@export var JUMP_SOUND_LIST : Array[Resource] = [
-	#preload("res://audio/effects/FurFly_PLYR_Jump_1.wav"),
-	#preload("res://audio/effects/FurFly_PLYR_Jump_2.wav"),
-	#preload("res://audio/effects/FurFly_PLYR_Jump_3.wav"),
-#]
-#
-#@export var RETRO_JUMP_SOUND_LIST : Array[Resource] = [
-	#preload("res://audio/effects/FurlFly_Retro_Jump_1.wav"),
-	#preload("res://audio/effects/FurlFly_Retro_Jump_2.wav"),
-	#preload("res://audio/effects/FurlFly_Retro_Jump_3.wav"),
-	#preload("res://audio/effects/FurlFly_Retro_Jump_4.wav"),
-	#preload("res://audio/effects/FurlFly_Retro_Jump_5.wav"),
-#]
-#
-#@export var GRAB_SOUND_LIST : Array[Resource] = [
-	#preload("res://audio/effects/FurFly_PLYR_Grab_1.wav"),
-	#preload("res://audio/effects/FurFly_PLYR_Grab_2.wav"),
-	#preload("res://audio/effects/FurFly_PLYR_Grab_3.wav"),
-	#preload("res://audio/effects/FurFly_PLYR_Grab_4.wav"),
-#]
-#
-#@export var LAND_SOUND_LIST : Array[Resource] = [
-	#preload("res://audio/effects/FurFly_PLYR_Land_1.wav"),
-	#preload("res://audio/effects/FurFly_PLYR_Land_2.wav"),
-	#preload("res://audio/effects/FurFly_PLYR_Land_3.wav"),
-	#preload("res://audio/effects/FurFly_PLYR_Land_4.wav"),
-	#preload("res://audio/effects/FurFly_PLYR_Land_5.wav"),
-#]
+
+@export var PLAYER_FLASH_ON_SOUND : Resource = preload("res://audio/DL_Player_Flash_On.wav")
+
+@export var PLAYER_FLASH_OFF_SOUND : Resource = preload("res://audio/DL_Player_Flash_Off.wav")
+
+@export var PLAYER_FLASH_OVERLOAD_SOUND : Resource = preload("res://audio/DL_Player_Flash_Overload.wav")
+
+@export var PLAYER_FLASH_RESTART_SOUND : Resource = preload("res://audio/DL_Player_Flash_Restart.wav")
+
+@export var PLAYER_FINALKILL_SOUND : Resource = preload("res://audio/DL_Player_FinalKill.wav")
+
+@export var PLAYER_KILL_SOUND : Resource = preload("res://audio/DL_Player_Kill.wav")
 
 @export var PLYR_WALK_SOUND_LIST : Array[Resource] = [
 	preload("res://audio/DL_Player_Walk_1.wav"),

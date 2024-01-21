@@ -32,6 +32,7 @@ func player_died():
 			new_ref.position = old_ref.position
 			new_ref.rotation = old_ref.rotation
 			new_ref.sound_player = old_ref.sound_player
+			player_sound_player.play_plyr(player_sound_player.PLAYER_KILL_SOUND)
 			$AnimationPlayer.play("player_hit")
 			move_child(new_ref, old_ref.get_index())
 			add_child(new_ref)
@@ -47,6 +48,7 @@ func player_died():
 			new_ref.position = old_ref.position
 			new_ref.rotation = old_ref.rotation
 			new_ref.sound_player = old_ref.sound_player
+			player_sound_player.play_plyr(player_sound_player.PLAYER_KILL_SOUND)
 			$AnimationPlayer.play("player_hit")
 			move_child(new_ref, old_ref.get_index())
 			add_child(new_ref)
@@ -56,9 +58,10 @@ func player_died():
 			lifes = 1
 		1:
 			var old_ref = $Player_1
+			player_sound_player.play_plyr(player_sound_player.PLAYER_FINALKILL_SOUND)
 			$AnimationPlayer.play("player_died_1")
 			$Timer_restart.start()
-			enemy.queue_free()
+			#enemy.queue_free()
 			lifes = 0
 
 func _on_timer_reset_timeout():
@@ -68,10 +71,12 @@ func return_control():
 	Signals.emit_signal("control_back")
 
 func _on_area_2d_body_entered_first_trigger(body):
+	$enemy_sound_player.play_distance_enemy($enemy_sound_player.MONSTER_DISSAPPEAR_SOUND)
 	$First_trigger.queue_free()
 
 func _on_area_2d_body_entered_second_trigger(body):
 	$Enemy.activate()
+	$Second_trigger.queue_free()
 
 func _on_area_2d_body_entered_safe_trigger(body):
 	$Timer_restart.start()

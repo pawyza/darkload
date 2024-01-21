@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dmvr5inojsdwu"
-path="res://.godot/imported/DL_MonsterDissapera.wav-2a884cc59eca296d0ad1ca5c0c0e60fd.sample"
+path="res://.godot/imported/DL_MonsterDissappear.wav-6649fda84238771f2ba317ff88520b60.sample"
 
 [deps]
 
-source_file="res://audio/DL_MonsterDissapera.wav"
-dest_files=["res://.godot/imported/DL_MonsterDissapera.wav-2a884cc59eca296d0ad1ca5c0c0e60fd.sample"]
+source_file="res://audio/DL_MonsterDissappear.wav"
+dest_files=["res://.godot/imported/DL_MonsterDissappear.wav-6649fda84238771f2ba317ff88520b60.sample"]
 
 [params]
 

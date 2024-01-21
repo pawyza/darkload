@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+@export var sound_player : Node2D
+
 @export var player : CharacterBody2D
+
 @export var stun_time = 1.5
 @export var movement_speed = 350
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -36,12 +39,15 @@ func activate():
 	activated = true
 	start_chase_timeout()
 	$AnimationPlayer.play("walk")
+	sound_player.play_enemy_noise()
 
 func detect_collisions():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().name.begins_with("Player") and !stunned:
 			respawn()
+			chase_started = false
+			$ChaseTimer.stop()
 			Signals.emit_signal("player_hit")
 			break
 
@@ -58,8 +64,10 @@ func respawn():
 			closest_distance = distance_to_player
 			closest_spawn_point = point
 	position = closest_spawn_point.position
-	stunned = false
 	chasing = true
+	stunned = false
+	sound_player.stop_chase_ambience()
+	sound_player.play_distance_enemy(sound_player.MONSTER_APPEAR_SOUND)
 
 func actor_setup():
 	await get_tree().physics_frame
@@ -95,22 +103,33 @@ func check_if_stunned():
 
 func _on_stun_timer_timeout():
 	stunned = false
+	
+var chase_started = false
 
 func _on_chase_timer_timeout():
 	if $ChaseEndDetector.has_overlapping_bodies():
 		print("chase timeout ended")
+		sound_player.stop_chase_ambience()
 		chasing = false
 
 func _on_chase_end_detector_body_exited(body):
-	if activated:
+	if activated and chase_started:
+		chase_started = false
 		print("after chase respawn")
-		respawn()
+		sound_player.play_distance_enemy(sound_player.MONSTER_DISSAPPEAR_SOUND)
+		$TimerDissappearSound.start()
+
+func _on_timer_dissappear_sound_timeout():
+	respawn()
 
 func _on_chase_start_detector_body_entered(body):
+	print(body)
 	if activated and chasing:
 		start_chase_timeout()
 
 func start_chase_timeout():
-	print("chase timeout started")
-	if $ChaseTimer.is_stopped():
+	if $ChaseTimer.is_stopped() and !chase_started:
+		chase_started = true
+		print("chase timeout started")
+		sound_player.play_chase_ambience()
 		$ChaseTimer.start()

@@ -79,6 +79,9 @@ collision_layer = 33
 motion_mode = 1
 script = ExtResource("1_biffa")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
 [node name="Collision_1" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x6v8p")
 
@@ -151,7 +154,7 @@ libraries = {
 autoplay = "walk"
 
 [node name="TimerWalking" type="Timer" parent="."]
-wait_time = 0.35
+wait_time = 0.4
 one_shot = true
 
 [connection signal="timeout" from="Flashlight/StunTimer" to="." method="_on_stun_timer_timeout"]

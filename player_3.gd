@@ -21,6 +21,7 @@ var control = false
 func _ready():
 	Signals.player_hit.connect(take_control)
 	Signals.control_back.connect(return_control)
+	$AudioListener2D.make_current()
 
 func take_control():
 	control = false
@@ -30,15 +31,20 @@ func return_control():
 
 func _physics_process(delta):
 	if control:
+		if Input.is_action_just_pressed("ui_accept") and $Flashlight/StunTimer.is_stopped() and $Flashlight/TurnOffTimer.is_stopped():
+			sound_player.play_plyr(sound_player.PLAYER_FLASH_ON_SOUND)
+		elif Input.is_action_just_released("ui_accept") and $Flashlight/StunTimer.is_stopped() and $Flashlight/TurnOffTimer.is_stopped():
+			sound_player.play_plyr(sound_player.PLAYER_FLASH_OFF_SOUND)
+
 		if Input.is_action_pressed("ui_accept") and $Flashlight/StunTimer.is_stopped() and $Flashlight/TurnOffTimer.is_stopped():
 			flashlight_cooling_state = false
 			flashlight_state = true
-		elif $Flashlight/StunTimer.is_stopped() and $Flashlight/TurnOffTimer.is_stopped():
+		elif $Flashlight/StunTimer.is_stopped() and $Flashlight/TurnOffTimer.is_stopped() and flashlight_cooling_state == false:
 			$Flashlight/TurnOffTimer.start(flashlight_heat_trun_off_time)
 			flashlight_state = false
 		else:
 			flashlight_state = false
-
+	
 	if control:
 		follow_cursor()
 
@@ -90,6 +96,7 @@ func flashlight_heating( state : bool ):
 	elif flashlight_heat >= flashlight_heat_limit and $Flashlight/StunTimer.is_stopped():
 		flashlight_cooling_state = true
 		$Flashlight/StunTimer.start(flashlight_heat_stun_time)
+		sound_player.play_plyr(sound_player.PLAYER_FLASH_OVERLOAD_SOUND)
 
 func _on_stun_timer_timeout():
 	flashlight_cooling_state = true
@@ -106,3 +113,5 @@ func flashlight_cooling( state : bool ):
 
 func _on_cooling_tick_timer_timeout():
 	flashlight_heat -= 1
+	if flashlight_heat == 0:
+		sound_player.play_plyr(sound_player.PLAYER_FLASH_RESTART_SOUND)

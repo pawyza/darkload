@@ -3,6 +3,7 @@ extends Node2D
 var lifes = 3
 
 @onready var enemy = $Enemy
+@onready var player_sound_player = $PlayerSoundPlayer
 
 var player_3 = preload("res://player_3.tscn")
 var player_2 = preload("res://player_2.tscn")
@@ -13,6 +14,7 @@ var restartable = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Signals.player_hit.connect(player_died)
+	player_sound_player.start_music()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,10 +31,12 @@ func player_died():
 			$Timer_reset.start()
 			new_ref.position = old_ref.position
 			new_ref.rotation = old_ref.rotation
+			new_ref.sound_player = old_ref.sound_player
 			$AnimationPlayer.play("player_hit")
 			move_child(new_ref, old_ref.get_index())
 			add_child(new_ref)
 			enemy.player = new_ref
+			player_sound_player.player = new_ref
 			old_ref.queue_free()
 			lifes = 2
 		2:
@@ -42,10 +46,12 @@ func player_died():
 			$Timer_reset.start()
 			new_ref.position = old_ref.position
 			new_ref.rotation = old_ref.rotation
+			new_ref.sound_player = old_ref.sound_player
 			$AnimationPlayer.play("player_hit")
 			move_child(new_ref, old_ref.get_index())
 			add_child(new_ref)
 			enemy.player = new_ref
+			player_sound_player.player = new_ref
 			old_ref.queue_free()
 			lifes = 1
 		1:
@@ -73,6 +79,8 @@ func _on_area_2d_body_entered_safe_trigger(body):
 
 func _on_button_pressed():
 	$MenuCanvas.hide()
+	player_sound_player.stop_music()
+	player_sound_player.start_main_ambient()
 	Signals.emit_signal("control_back")
 
 func _on_timer_restart_timeout():

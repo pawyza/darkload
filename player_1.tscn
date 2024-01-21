@@ -150,7 +150,12 @@ libraries = {
 }
 autoplay = "walk"
 
+[node name="TimerWalking" type="Timer" parent="."]
+wait_time = 0.35
+one_shot = true
+
 [connection signal="timeout" from="Flashlight/StunTimer" to="." method="_on_stun_timer_timeout"]
 [connection signal="timeout" from="Flashlight/TurnOffTimer" to="." method="_on_turn_off_timer_timeout"]
 [connection signal="timeout" from="Flashlight/HeatingTickTimer" to="." method="_on_heating_tick_timer_timeout"]
 [connection signal="timeout" from="Flashlight/CoolingTickTimer" to="." method="_on_cooling_tick_timer_timeout"]
+[connection signal="timeout" from="TimerWalking" to="." method="play_walking_sound"]

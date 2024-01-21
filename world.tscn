@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://kyeidinuq466"]
+[gd_scene load_steps=36 format=3 uid="uid://kyeidinuq466"]
 
 [ext_resource type="PackedScene" uid="uid://btwmdb60oi3c" path="res://player_3.tscn" id="1_7tdpa"]
 [ext_resource type="Texture2D" uid="uid://kewxwjvnag2o" path="res://path.png" id="1_oruy3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dy2adlpp80wef" path="res://Circle.png" id="7_2wdxl"]
 [ext_resource type="Texture2D" uid="uid://b5r7pnoneyc00" path="res://LightCircle.png" id="11_h68tm"]
 [ext_resource type="Texture2D" uid="uid://dv7b8g5d8fvg8" path="res://enemy.png" id="12_aksgv"]
+[ext_resource type="PackedScene" uid="uid://caoev6aamnb2n" path="res://player_sound_player.tscn" id="13_1stwj"]
 [ext_resource type="FontFile" uid="uid://btp2kgfur14i5" path="res://Frightmare.otf" id="13_vhf0c"]
 
 [sub_resource type="Gradient" id="Gradient_srww6"]
@@ -1807,8 +1808,9 @@ position = Vector2(-21391.4, -5349.69)
 rotation = -4.72824
 texture = ExtResource("2_xfvks")
 
-[node name="Player_3" parent="." instance=ExtResource("1_7tdpa")]
+[node name="Player_3" parent="." node_paths=PackedStringArray("sound_player") instance=ExtResource("1_7tdpa")]
 position = Vector2(-4458, 894)
+sound_player = NodePath("../PlayerSoundPlayer")
 
 [node name="LightArea" parent="Player_3/Body_1" index="2"]
 visible = false
@@ -4075,6 +4077,9 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_lm77u")
 text = "PLAY
 "
+
+[node name="PlayerSoundPlayer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_1stwj")]
+player = NodePath("../Player_3")
 
 [connection signal="body_entered" from="First_trigger/Area2D" to="." method="_on_area_2d_body_entered_first_trigger"]
 [connection signal="body_entered" from="Second_trigger/Area2D" to="." method="_on_area_2d_body_entered_second_trigger"]

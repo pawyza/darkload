@@ -15,7 +15,7 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.0784314, 0.133333, 0.25098, 1)
 boot_splash/image="res://GWJ-Full-Logo-tag-Orange2.png"
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 

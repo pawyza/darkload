@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var sound_player : Node2D
 @export var SPEED = 170
 
 var flashlight_state = false
@@ -50,10 +51,15 @@ func _physics_process(delta):
 		var direction = Input.get_vector("move_left", "move_right","move_up", "move_down")
 		if direction:
 			velocity = direction * SPEED
+			if $TimerWalking.is_stopped():
+				$TimerWalking.start()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.y = move_toward(velocity.y, 0 ,SPEED)
 	move_and_slide()
+
+func play_walking_sound():
+	sound_player.play_plyr(sound_player.PLYR_WALK_SOUND_LIST.pick_random())
 
 func follow_cursor():
 	rotation = position.angle_to_point(get_global_mouse_position()) + -PI/2

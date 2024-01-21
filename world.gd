@@ -68,7 +68,7 @@ func _on_area_2d_body_entered_second_trigger(body):
 	$Enemy.activate()
 
 func _on_area_2d_body_entered_safe_trigger(body):
-	$Timer_restart.play()
+	$Timer_restart.start()
 	$AnimationPlayer.play("player_won")
 
 func _on_button_pressed():

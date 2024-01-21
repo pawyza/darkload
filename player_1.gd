@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 200
+@export var SPEED = 230
 
 var flashlight_state = false
 @onready var light_1 = $Body_1/PointLight2D

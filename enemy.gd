@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 @export var player : CharacterBody2D
 @export var stun_time = 1.5
-@export var movement_speed = 240
+@export var movement_speed = 350
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 var activated = false
 @export var spawn_points_node : Node2D
 
 var stunned = false
+var chasing = true
 
 func _ready():
 	$AnimationPlayer.play("RESET")
@@ -19,6 +20,7 @@ func _ready():
 var i = 0
 
 func _physics_process(delta):
+	#print(chasing)
 	if activated:
 		check_if_stunned()
 		follow_player()
@@ -32,6 +34,7 @@ func _physics_process(delta):
 
 func activate():
 	activated = true
+	start_chase_timeout()
 	$AnimationPlayer.play("walk")
 
 func detect_collisions():
@@ -43,6 +46,7 @@ func detect_collisions():
 			break
 
 func respawn():
+	print("respawn")
 	var closest_spawn_point
 	var closest_distance
 	for point in spawn_points_node.get_children():
@@ -54,6 +58,8 @@ func respawn():
 			closest_distance = distance_to_player
 			closest_spawn_point = point
 	position = closest_spawn_point.position
+	stunned = false
+	chasing = true
 
 func actor_setup():
 	await get_tree().physics_frame
@@ -63,6 +69,11 @@ func set_movement_target( movement_target ):
 	navigation_agent.target_position = movement_target
 	
 func follow_player():
+	if chasing:
+		movement_speed = 350
+	else:
+		movement_speed = 60
+
 	if stunned:
 		velocity.x = move_toward(velocity.x, 0, 20 / (position.distance_to(player.position)/80))
 		velocity.y = move_toward(velocity.y, 0, 20 / (position.distance_to(player.position)/80))
@@ -85,4 +96,21 @@ func check_if_stunned():
 func _on_stun_timer_timeout():
 	stunned = false
 
+func _on_chase_timer_timeout():
+	if $ChaseEndDetector.has_overlapping_bodies():
+		print("chase timeout ended")
+		chasing = false
 
+func _on_chase_end_detector_body_exited(body):
+	if activated:
+		print("after chase respawn")
+		respawn()
+
+func _on_chase_start_detector_body_entered(body):
+	if activated and chasing:
+		start_chase_timeout()
+
+func start_chase_timeout():
+	print("chase timeout started")
+	if $ChaseTimer.is_stopped():
+		$ChaseTimer.start()

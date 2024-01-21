@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvt51ranaqhu3"]
+[gd_scene load_steps=11 format=3 uid="uid://cvt51ranaqhu3"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_2ko3f"]
 [ext_resource type="Texture2D" uid="uid://b5r7pnoneyc00" path="res://LightCircle.png" id="2_0omsb"]
@@ -145,6 +145,12 @@ _data = {
 "walk": SubResource("Animation_annvh")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dmhlp"]
+radius = 1200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tousq"]
+radius = 500.0
+
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_2ko3f")
@@ -208,4 +214,25 @@ libraries = {
 "": SubResource("AnimationLibrary_yasps")
 }
 
+[node name="ChaseTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="ChaseEndDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseEndDetector"]
+shape = SubResource("CircleShape2D_dmhlp")
+
+[node name="ChaseStartDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseStartDetector"]
+shape = SubResource("CircleShape2D_tousq")
+
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
+[connection signal="body_exited" from="ChaseEndDetector" to="." method="_on_chase_end_detector_body_exited"]
+[connection signal="body_entered" from="ChaseStartDetector" to="." method="_on_chase_start_detector_body_entered"]

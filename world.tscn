@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://kyeidinuq466"]
+[gd_scene load_steps=35 format=3 uid="uid://kyeidinuq466"]
 
 [ext_resource type="PackedScene" uid="uid://btwmdb60oi3c" path="res://player_3.tscn" id="1_7tdpa"]
 [ext_resource type="Texture2D" uid="uid://kewxwjvnag2o" path="res://path.png" id="1_oruy3"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://dy2adlpp80wef" path="res://Circle.png" id="7_2wdxl"]
 [ext_resource type="Texture2D" uid="uid://b5r7pnoneyc00" path="res://LightCircle.png" id="11_h68tm"]
 [ext_resource type="Texture2D" uid="uid://dv7b8g5d8fvg8" path="res://enemy.png" id="12_aksgv"]
-[ext_resource type="Shader" path="res://fog.gdshader" id="12_sxc3u"]
 [ext_resource type="FontFile" uid="uid://btp2kgfur14i5" path="res://Frightmare.otf" id="13_vhf0c"]
 
 [sub_resource type="Gradient" id="Gradient_srww6"]
@@ -714,7 +713,6 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2sp6p"]
-shader = ExtResource("12_sxc3u")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqrfe"]
 bg_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
@@ -727,7 +725,7 @@ texture_filter = 1
 script = ExtResource("1_xuh54")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.776471, 0.776471, 0.776471, 1)
+color = Color(0.152941, 0.152941, 0.152941, 1)
 metadata/_edit_lock_ = true
 
 [node name="Ground" type="Node2D" parent="."]

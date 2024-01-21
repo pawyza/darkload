@@ -23,7 +23,6 @@ func _ready():
 var i = 0
 
 func _physics_process(delta):
-	#print(chasing)
 	if activated:
 		check_if_stunned()
 		follow_player()
@@ -64,10 +63,16 @@ func respawn():
 			closest_distance = distance_to_player
 			closest_spawn_point = point
 	position = closest_spawn_point.position
-	chasing = true
-	stunned = false
 	sound_player.stop_chase_ambience()
 	sound_player.play_distance_enemy(sound_player.MONSTER_APPEAR_SOUND)
+	chasing = false
+	stunned = true
+	$TimerRespawnMove.start()
+
+func _on_timer_respawn_move_timeout():
+	print("respawn timer")
+	chasing = true
+	stunned = false
 
 func actor_setup():
 	await get_tree().physics_frame

@@ -236,8 +236,13 @@ shape = SubResource("CircleShape2D_tousq")
 wait_time = 2.0
 one_shot = true
 
+[node name="TimerRespawnMove" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
 [connection signal="body_exited" from="ChaseEndDetector" to="." method="_on_chase_end_detector_body_exited"]
 [connection signal="body_entered" from="ChaseStartDetector" to="." method="_on_chase_start_detector_body_entered"]
 [connection signal="timeout" from="TimerDissappearSound" to="." method="_on_timer_dissappear_sound_timeout"]
+[connection signal="timeout" from="TimerRespawnMove" to="." method="_on_timer_respawn_move_timeout"]

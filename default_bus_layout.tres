@@ -1,41 +1,41 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://x6myi1o2vrto"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://b36aus4jtxb1b"]
 
-[sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_bn21u"]
+[sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_anl17"]
 resource_name = "EQ21"
 band_db/22_hz = -60.0
 band_db/32_hz = -60.0
 band_db/44_hz = -60.0
-band_db/63_hz = -36.2
-band_db/90_hz = -8.3
-band_db/22000_hz = -21.0
+band_db/63_hz = -20.0
+band_db/22000_hz = -10.0
 
-[sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_3rtes"]
+[sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_sfdbw"]
 resource_name = "EQ21"
 band_db/22_hz = -60.0
 band_db/32_hz = -60.0
-band_db/44_hz = -39.2
-band_db/63_hz = -13.8
-band_db/22000_hz = -10.5
+band_db/44_hz = -60.0
+band_db/63_hz = -20.0
+band_db/22000_hz = -10.0
 
-[sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_x5068"]
+[sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_hxi46"]
 resource_name = "EQ21"
 band_db/22_hz = -60.0
 band_db/32_hz = -60.0
-band_db/44_hz = -39.2
-band_db/63_hz = -13.8
-band_db/22000_hz = -10.5
+band_db/44_hz = -60.0
+band_db/63_hz = -20.0
+band_db/22000_hz = -10.0
 
-[sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_1onjw"]
-resource_name = "EQ10"
-band_db/31_hz = -60.0
-band_db/62_hz = -60.0
-band_db/125_hz = -21.9
-band_db/250_hz = -5.3
-band_db/8000_hz = -2.7
-band_db/16000_hz = -18.8
+[sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_5ubt4"]
+resource_name = "EQ21"
+band_db/22_hz = -60.0
+band_db/32_hz = -60.0
+band_db/44_hz = -60.0
+band_db/63_hz = -30.0
+band_db/90_hz = -20.0
+band_db/125_hz = -10.0
+band_db/22000_hz = -20.0
 
 [resource]
-bus/0/effect/0/effect = SubResource("AudioEffectEQ21_bn21u")
+bus/0/effect/0/effect = SubResource("AudioEffectEQ21_anl17")
 bus/0/effect/0/enabled = true
 bus/1/name = &"UI"
 bus/1/solo = false
@@ -43,7 +43,7 @@ bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
 bus/1/send = &"Master"
-bus/1/effect/0/effect = SubResource("AudioEffectEQ21_3rtes")
+bus/1/effect/0/effect = SubResource("AudioEffectEQ21_sfdbw")
 bus/1/effect/0/enabled = true
 bus/2/name = &"AMB"
 bus/2/solo = false
@@ -51,7 +51,7 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 3.44248
 bus/2/send = &"Master"
-bus/2/effect/0/effect = SubResource("AudioEffectEQ21_x5068")
+bus/2/effect/0/effect = SubResource("AudioEffectEQ21_hxi46")
 bus/2/effect/0/enabled = true
 bus/3/name = &"PLYR"
 bus/3/solo = false
@@ -71,5 +71,5 @@ bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = 0.0
 bus/5/send = &"Master"
-bus/5/effect/0/effect = SubResource("AudioEffectEQ10_1onjw")
+bus/5/effect/0/effect = SubResource("AudioEffectEQ21_5ubt4")
 bus/5/effect/0/enabled = true

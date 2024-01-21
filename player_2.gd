@@ -109,4 +109,4 @@ func flashlight_cooling( state : bool ):
 func _on_cooling_tick_timer_timeout():
 	flashlight_heat -= 1
 	if flashlight_heat == 0:
-		sound_player.play_plyr(sound_player.PLAYER_FLASH_RESTART_SOUND)
+		sound_player.play_plyr(sound_player.PLAYER_FLASH_RESTART_SOUND, 5)

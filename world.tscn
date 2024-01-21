@@ -4042,7 +4042,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("13_vhf0c")
 bbcode_enabled = true
-text = "[center][color=#d72228][font_size=128]DARKLOAD[/font_size][/color][/center]"
+text = "[center][color=#d72228][font_size=128]DARKLIGHT[/font_size][/color][/center]"
 
 [node name="MarginContainer3" type="MarginContainer" parent="MenuCanvas/Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2

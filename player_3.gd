@@ -15,7 +15,7 @@ var flashlight_heat_limit = 30
 @export var flashlight_heat_stun_time = 3
 @export var flashlight_heat_trun_off_time = 0.1
 
-var control = true
+var control = false
 
 func _ready():
 	Signals.player_hit.connect(take_control)

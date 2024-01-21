@@ -38,8 +38,8 @@ func detect_collisions():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().name.begins_with("Player") and !stunned:
-			Signals.emit_signal("player_hit")
 			respawn()
+			Signals.emit_signal("player_hit")
 			break
 
 func respawn():
@@ -47,10 +47,10 @@ func respawn():
 	var closest_distance
 	for point in spawn_points_node.get_children():
 		var distance_to_player = player.position.distance_to(point.position)
-		if closest_distance == null and distance_to_player > 2000:
+		if distance_to_player > 2000 and closest_distance == null:
 			closest_distance = distance_to_player
 			closest_spawn_point = point
-		elif closest_distance > distance_to_player and distance_to_player > 2000:
+		elif distance_to_player > 2000 and closest_distance > distance_to_player:
 			closest_distance = distance_to_player
 			closest_spawn_point = point
 	position = closest_spawn_point.position

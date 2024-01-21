@@ -160,8 +160,8 @@ texture_scale = 0.3
 [node name="PointLight2D" type="PointLight2D" parent="Body_1"]
 position = Vector2(-1.22537, 65.8386)
 enabled = false
-color = Color(0.792157, 0.741176, 0.439216, 1)
-energy = 4.58
+color = Color(0.764706, 0.72549, 0.701961, 1)
+energy = 5.3
 shadow_enabled = true
 texture = ExtResource("3_ljf85")
 
@@ -211,8 +211,8 @@ texture_scale = 0.3
 [node name="PointLight2D" type="PointLight2D" parent="Body_2"]
 position = Vector2(-1.51987, 64.6625)
 enabled = false
-color = Color(0.792157, 0.741176, 0.439216, 1)
-energy = 4.58
+color = Color(0.764706, 0.72549, 0.701961, 1)
+energy = 5.3
 shadow_enabled = true
 texture = ExtResource("3_ljf85")
 

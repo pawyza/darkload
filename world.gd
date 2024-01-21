@@ -8,6 +8,8 @@ var player_3 = preload("res://player_3.tscn")
 var player_2 = preload("res://player_2.tscn")
 var player_1 = preload("res://player_1.tscn")
 
+var restartable = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Signals.player_hit.connect(player_died)
@@ -47,8 +49,8 @@ func player_died():
 		1:
 			var old_ref = $Player_1
 			$AnimationPlayer.play("player_died_1")
+			restartable = true
 			enemy.queue_free()
-			old_ref.queue_free()
 			lifes = 0
 
 func _on_timer_reset_timeout():
@@ -62,3 +64,11 @@ func _on_area_2d_body_entered_first_trigger(body):
 
 func _on_area_2d_body_entered_second_trigger(body):
 	$Enemy.activate()
+
+func _on_area_2d_body_entered_safe_trigger(body):
+	$AnimationPlayer.play("player_won")
+
+
+func _on_button_pressed():
+	$MenuCanvas.hide()
+	Signals.emit_signal("control_back")

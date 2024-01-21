@@ -45,7 +45,7 @@ color_ramp = SubResource("Gradient_2426w")
 noise = SubResource("FastNoiseLite_tsx52")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1xcp7"]
-radius = 500.85
+radius = 387.858
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_66k00"]
 cull_mode = 2
@@ -1810,7 +1810,7 @@ rotation = -4.72824
 texture = ExtResource("2_xfvks")
 
 [node name="Player_3" parent="." instance=ExtResource("1_7tdpa")]
-position = Vector2(1162, 402)
+position = Vector2(-4458, 894)
 
 [node name="LightArea" parent="Player_3/Body_1" index="2"]
 visible = false
@@ -3856,8 +3856,11 @@ offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.843137, 0.133333, 0.156863, 1)
+theme_override_fonts/font = ExtResource("13_vhf0c")
 theme_override_font_sizes/font_size = 64
 text = "ALL OF YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Death_screen_2" type="TextureRect" parent="CanvasLayer"]
 visible = false
@@ -3891,8 +3894,11 @@ offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.843137, 0.133333, 0.156863, 1)
+theme_override_fonts/font = ExtResource("13_vhf0c")
 theme_override_font_sizes/font_size = 64
 text = "ONLY YOU LEFT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Death_screen_3" type="TextureRect" parent="CanvasLayer"]
 visible = false
@@ -3926,8 +3932,11 @@ offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.843137, 0.133333, 0.156863, 1)
+theme_override_fonts/font = ExtResource("13_vhf0c")
 theme_override_font_sizes/font_size = 64
 text = "ONE OF YOU IS MISSING"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Won_screen_4" type="TextureRect" parent="CanvasLayer"]
 visible = false
@@ -3960,8 +3969,27 @@ offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.67451, 0.505882, 0, 1)
+theme_override_fonts/font = ExtResource("13_vhf0c")
 theme_override_font_sizes/font_size = 64
 text = "YOU ARE SAFE"
+horizontal_alignment = 1
+
+[node name="Label_restart" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = 538.0
+offset_right = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_vhf0c")
+theme_override_font_sizes/font_size = 48
+text = "PRESS SPACE TO RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -3969,6 +3997,9 @@ libraries = {
 }
 
 [node name="Timer_reset" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_restart" type="Timer" parent="."]
 one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -4051,6 +4082,7 @@ text = "PLAY
 [connection signal="body_entered" from="Second_trigger/Area2D" to="." method="_on_area_2d_body_entered_second_trigger"]
 [connection signal="body_entered" from="Safe_trigger/Area2D" to="." method="_on_area_2d_body_entered_safe_trigger"]
 [connection signal="timeout" from="Timer_reset" to="." method="_on_timer_reset_timeout"]
+[connection signal="timeout" from="Timer_restart" to="." method="_on_timer_restart_timeout"]
 [connection signal="pressed" from="MenuCanvas/Menu/MarginContainer/VBoxContainer/MarginContainer2/Button" to="." method="_on_button_pressed"]
 
 [editable path="Player_3"]

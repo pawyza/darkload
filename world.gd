@@ -16,7 +16,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_pressed("ui_accept") and restartable:
+		get_tree().reload_current_scene()
+		var restartable = false
 
 func player_died():
 	match lifes:
@@ -49,7 +51,7 @@ func player_died():
 		1:
 			var old_ref = $Player_1
 			$AnimationPlayer.play("player_died_1")
-			restartable = true
+			$Timer_restart.start()
 			enemy.queue_free()
 			lifes = 0
 
@@ -66,9 +68,13 @@ func _on_area_2d_body_entered_second_trigger(body):
 	$Enemy.activate()
 
 func _on_area_2d_body_entered_safe_trigger(body):
+	$Timer_restart.play()
 	$AnimationPlayer.play("player_won")
-
 
 func _on_button_pressed():
 	$MenuCanvas.hide()
 	Signals.emit_signal("control_back")
+
+func _on_timer_restart_timeout():
+	$CanvasLayer/Label_restart.show()
+	restartable = true

@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dy2adlpp80wef" path="res://Circle.png" id="7_2wdxl"]
 [ext_resource type="Texture2D" uid="uid://b5r7pnoneyc00" path="res://LightCircle.png" id="11_h68tm"]
 [ext_resource type="Texture2D" uid="uid://dv7b8g5d8fvg8" path="res://enemy.png" id="12_aksgv"]
-[ext_resource type="PackedScene" uid="uid://caoev6aamnb2n" path="res://player_sound_player.tscn" id="13_1stwj"]
+[ext_resource type="PackedScene" path="res://player_sound_player.tscn" id="13_1stwj"]
 [ext_resource type="FontFile" uid="uid://btp2kgfur14i5" path="res://Frightmare.otf" id="13_vhf0c"]
-[ext_resource type="PackedScene" uid="uid://cudf47lje7goo" path="res://enemy_sound_player.tscn" id="14_cpcl7"]
+[ext_resource type="PackedScene" uid="uid://ca4y2fvakyfi0" path="res://enemy_sound_player.tscn" id="14_cpcl7"]
 
 [sub_resource type="Gradient" id="Gradient_srww6"]
 offsets = PackedFloat32Array(0.0477816, 1)

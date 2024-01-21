@@ -17,6 +17,11 @@ boot_splash/bg_color=Color(0.0784314, 0.133333, 0.25098, 1)
 boot_splash/image="res://GWJ-Full-Logo-tag-Orange2.png"
 config/icon="res://icon.png"
 
+[audio]
+
+driver/driver="Speakers (RME Fireface UCX II)"
+driver/mix_rate=48000
+
 [autoload]
 
 Signals="*res://signals.tscn"

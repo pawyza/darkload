@@ -30,9 +30,9 @@ func return_control():
 func _physics_process(delta):
 	if control:
 		if Input.is_action_just_pressed("ui_accept") and $Flashlight/StunTimer.is_stopped() and $Flashlight/TurnOffTimer.is_stopped():
-			sound_player.play_plyr(sound_player.PLAYER_FLASH_ON_SOUND)
+			sound_player.play_plyr(sound_player.PLAYER_FLASH_ON_SOUND,5)
 		elif Input.is_action_just_released("ui_accept") and $Flashlight/StunTimer.is_stopped() and $Flashlight/TurnOffTimer.is_stopped():
-			sound_player.play_plyr(sound_player.PLAYER_FLASH_OFF_SOUND)
+			sound_player.play_plyr(sound_player.PLAYER_FLASH_OFF_SOUND,5)
 
 		if Input.is_action_pressed("ui_accept") and $Flashlight/StunTimer.is_stopped() and $Flashlight/TurnOffTimer.is_stopped():
 			flashlight_cooling_state = false
@@ -63,7 +63,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func play_walking_sound():
-	sound_player.play_plyr(sound_player.PLYR_WALK_SOUND_LIST.pick_random())
+	sound_player.play_plyr(sound_player.PLYR_WALK_SOUND_LIST.pick_random(),-1)
 
 
 func follow_cursor():

@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cudf47lje7goo"]
+[gd_scene load_steps=8 format=3 uid="uid://ca4y2fvakyfi0"]
 
 [ext_resource type="Script" path="res://enemy_sound_player.gd" id="1_m2y1r"]
 [ext_resource type="AudioStream" uid="uid://cbw0tqjprrygc" path="res://audio/DL_Monster_MainNoise.wav" id="2_clncx"]
 [ext_resource type="AudioStream" uid="uid://dfx2lhfuivp46" path="res://audio/DL_Monster_Chase_Ambience.wav" id="2_owi5t"]
+
+[sub_resource type="Animation" id="Animation_c0k4n"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_8ec6t"]
 resource_name = "chase_start"
@@ -31,9 +34,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [-30.0, 15.0]
 }
-
-[sub_resource type="Animation" id="Animation_c0k4n"]
-length = 0.001
 
 [sub_resource type="Animation" id="Animation_qua1t"]
 resource_name = "chase_stop"

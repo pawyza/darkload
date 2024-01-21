@@ -177,4 +177,5 @@ libraries = {
 "": SubResource("AnimationLibrary_qexxy")
 }
 
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 [connection signal="finished" from="AmbiencePlayer" to="." method="_on_ambient_player_finished"]

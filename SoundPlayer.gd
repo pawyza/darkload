@@ -77,10 +77,9 @@ func start_music():
 
 func start_main_ambient():
 	$AnimationPlayerAmbience.play("start_ambient")
-	
-func _on_audio_stream_player_finished():
-	if !stop_music:
-		$MusicPlayer.play()
 
 func _on_ambience_player_finished():
 	$AmbiencePlayer.play()
+
+func _on_music_player_finished():
+	$MusicPlayer.play()

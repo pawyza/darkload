@@ -40,3 +40,6 @@ func stop_chase_ambience():
 	
 func play_enemy_noise():
 	$EnemyMainAudioStreamPlayer2D.play()
+
+func _on_enemy_main_audio_stream_player_2d_finished():
+	$EnemyMainAudioStreamPlayer2D.play()

@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dy2adlpp80wef" path="res://Circle.png" id="7_2wdxl"]
 [ext_resource type="Texture2D" uid="uid://b5r7pnoneyc00" path="res://LightCircle.png" id="11_h68tm"]
 [ext_resource type="Texture2D" uid="uid://dv7b8g5d8fvg8" path="res://enemy.png" id="12_aksgv"]
-[ext_resource type="PackedScene" path="res://player_sound_player.tscn" id="13_1stwj"]
+[ext_resource type="PackedScene" uid="uid://caoev6aamnb2n" path="res://player_sound_player.tscn" id="13_1stwj"]
 [ext_resource type="FontFile" uid="uid://btp2kgfur14i5" path="res://Frightmare.otf" id="13_vhf0c"]
-[ext_resource type="PackedScene" uid="uid://ca4y2fvakyfi0" path="res://enemy_sound_player.tscn" id="14_cpcl7"]
+[ext_resource type="PackedScene" uid="uid://cudf47lje7goo" path="res://enemy_sound_player.tscn" id="14_cpcl7"]
 
 [sub_resource type="Gradient" id="Gradient_srww6"]
 offsets = PackedFloat32Array(0.0477816, 1)
@@ -1810,7 +1810,7 @@ rotation = -4.72824
 texture = ExtResource("2_xfvks")
 
 [node name="Player_3" parent="." node_paths=PackedStringArray("sound_player") instance=ExtResource("1_7tdpa")]
-position = Vector2(-4288, 884)
+position = Vector2(1208, 447)
 sound_player = NodePath("../PlayerSoundPlayer")
 
 [node name="LightArea" parent="Player_3/Body_1" index="2"]
@@ -4059,8 +4059,8 @@ theme_override_fonts/normal_font = ExtResource("13_vhf0c")
 bbcode_enabled = true
 text = "[center][font_size=80]Control Hints[/font_size][/center]
 [font_size=20][/font_size]
-[center][font_size=40][color=#d72228]W/A/S/D[/color] - movement controls[/font_size][/center]
-[center][font_size=40][color=#d72228]Space[/color] - press to light up flashlight, watch out it overheats[/font_size][/center]
+[center][font_size=40][color=#d72228]W A S D[/color] movement controls[/font_size][/center]
+[center][font_size=40][color=#d72228]Space[/color] press to light up flashlight, watch out it overheats[/font_size][/center]
 
 
 [center][color=#d72228][font_size=50]Just follow the path[/font_size][/color][/center]

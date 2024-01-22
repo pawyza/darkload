@@ -4,6 +4,9 @@
 [ext_resource type="AudioStream" uid="uid://cbw0tqjprrygc" path="res://audio/DL_Monster_MainNoise.wav" id="2_clncx"]
 [ext_resource type="AudioStream" uid="uid://dfx2lhfuivp46" path="res://audio/DL_Monster_Chase_Ambience.wav" id="2_owi5t"]
 
+[sub_resource type="Animation" id="Animation_c0k4n"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_8ec6t"]
 resource_name = "chase_start"
 length = 3.0
@@ -31,9 +34,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [-30.0, 8.0]
 }
-
-[sub_resource type="Animation" id="Animation_c0k4n"]
-length = 0.001
 
 [sub_resource type="Animation" id="Animation_qua1t"]
 resource_name = "chase_stop"

@@ -63,7 +63,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func play_walking_sound():
-	sound_player.play_plyr(sound_player.PLYR_WALK_SOUND_LIST.pick_random(),-1)
+	sound_player.play_plyr(sound_player.PLYR_WALK_SOUND_LIST.pick_random(),0)
 
 
 func follow_cursor():
